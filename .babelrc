@@ -1,0 +1,28 @@
+/*https://nextjs.org/docs/advanced-features/customizing-babel-config*/
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": {},
+        "transform-runtime": {},
+        "styled-jsx": {},
+        "class-properties": {}
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": true
+      }
+    ],
+    [
+      "styled-components",
+      { "ssr": true /*"displayName": true, "preprocess": true*/ }
+    ],
+    ["babel-plugin-root-import"]
+  ]
+}
