@@ -23,3 +23,15 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+
+Cypress.Commands.add('checkFilterForm', (store) => {
+    cy.get('.filter_btn').click();
+    cy.wait('@getGalleryImages').then((xhr) => {
+        const state = store.getState();
+        const { filter } = state.Gallery;
+        expect(filter.page).to.eql(0);
+    });
+  })
+
+  
